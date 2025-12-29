@@ -15,6 +15,8 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
+        // THIS LINE REMOVES THE BOTTOM BAR (Explore, Next, Home, etc.)
+        tabBarStyle: { display: 'none' }, 
       }}>
       <Tabs.Screen
         name="index"
@@ -30,6 +32,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
+      {}
     </Tabs>
   );
 }
