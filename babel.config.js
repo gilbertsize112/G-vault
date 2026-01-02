@@ -3,17 +3,8 @@ module.exports = function(api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
-      [
-        "module:react-native-dotenv",
-        {
-          "moduleName": "@env",
-          "path": ".env",
-          "blacklist": null,
-          "whitelist": null,
-          "safe": false,
-          "allowUndefined": true
-        }
-      ]
-    ]
+      // Environment variables will still work via process.env 
+      // but we remove the extra plugin to test the Router
+    ],
   };
 };

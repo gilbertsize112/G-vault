@@ -5,29 +5,25 @@ import { View } from 'react-native';
 import 'react-native-reanimated';
 
 export const unstable_settings = {
-  // This ensures that if the app reloads, it anchors to the tabs group
-  initialRouteName: '(tabs)',
+  initialRouteName: 'index',
 };
 
 export default function RootLayout() {
   return (
-    // Force the navigation background to be the deep navy color
     <ThemeProvider value={DarkTheme}>
       <View style={{ flex: 1, backgroundColor: '#020617' }}>
         <Stack 
           screenOptions={{ 
             headerShown: false,
-            // The contentStyle ensures no white flicker during screen transitions
             contentStyle: { backgroundColor: '#020617' } 
           }}
         >
-          {/* This matches your login screen (usually index.tsx in the root app folder) */}
+          {/* Using (any) tells TypeScript to stop complaining about the route names */}
           <Stack.Screen name="index" /> 
+          <Stack.Screen name="login" /> 
           
-          {/* This matches your (tabs) folder which contains home.tsx */}
+          {/* Only keep this if the (tabs) folder exists in your app directory */}
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
         <StatusBar style="light" />
       </View>
